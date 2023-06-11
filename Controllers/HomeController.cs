@@ -22,8 +22,8 @@ public class HomeController : Controller
     {
         var model = new IndexViewModel()
         {
-            Site = db.Sites.First(),
-            Slides = db.Slides.OrderBy(x => x.Order).Where(x => x.Isview == true).ToList(),
+            Site = db.Sites!.First(),
+            Slides = db.Slides!.OrderBy(x => x.Order).Where(x => x.Isview == true).ToList(),
             Blogs = db.Blogs!.OrderByDescending(x => x.Id).Where(x => x.Isview == true).ToList()
 
         };
