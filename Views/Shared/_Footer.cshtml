@@ -1,3 +1,5 @@
+@model Art.Models.IndexViewModel
+
 <footer id="colorlib-footer" role="contentinfo">
     <div class="container">
         <div class="row row-pb-md">
@@ -18,7 +20,8 @@
             <div class="col-md-3">
                 <h2>Recent Post</h2>
                 <div class="f-blog">
-                    <a href="blog.html" class="blog-img" style='background-image: url(@(Url.Content("~/images/blog-1.jpg")));'>
+                    <a href="blog.html" class="blog-img"
+                        style='background-image: url(@(Url.Content("~/images/blog-1.jpg")));'>
                     </a>
                     <div class="desc">
                         <h3><a href="blog.html">Be a designer</a></h3>
@@ -26,7 +29,8 @@
                     </div>
                 </div>
                 <div class="f-blog">
-                    <a href="blog.html" class="blog-img" style='background-image: url(@(Url.Content("~/images/blog-2.jpg")));'>
+                    <a href="blog.html" class="blog-img"
+                        style='background-image: url(@(Url.Content("~/images/blog-2.jpg")));'>
                     </a>
                     <div class="desc">
                         <h3><a href="blog.html">How to build website</a></h3>
@@ -34,7 +38,8 @@
                     </div>
                 </div>
                 <div class="f-blog">
-                    <a href="blog.html" class="blog-img" style='background-image: url(@(Url.Content("~/images/blog-3.jpg")));'>
+                    <a href="blog.html" class="blog-img"
+                        style='background-image: url(@(Url.Content("~/images/blog-3.jpg")));'>
                     </a>
                     <div class="desc">
                         <h3><a href="blog.html">Create website</a></h3>
@@ -85,13 +90,13 @@
                 <p>
                     <small
                         class="block"><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-                        Copyright &copy;
-                        <script>document.write(new Date().getFullYear());</script> All rights reserved | This template
-                        is made with <i class="icon-heart" aria-hidden="true"></i> by <a href="https://colorlib.com"
-                            target="_blank">Colorlib</a>
+                        <script>document.write(new Date().getFullYear());</script> &copy;
+                        Tüm hakları saklıdır. @Model.Site!.Name <i class="icon-heart" aria-hidden="true"></i> Tasarım ve Kodlama
+                        <a href="https://www.ideapark.com.tr" target="_blank">Ideapark Interactive</a>
+
                         <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
                     </small>
-                    <small class="block">Demo Images: <a href="http://unsplash.co/" target="_blank">Unsplash</a></small>
+
                 </p>
             </div>
         </div>

@@ -1,6 +1,7 @@
 ﻿using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
 using Art.Models;
+using Art.Models.Entities;
 
 namespace Art.Controllers;
 
@@ -13,48 +14,92 @@ public class HomeController : Controller
         _logger = logger;
     }
 
+
+    PmitLn2oqDb0001Context db = new PmitLn2oqDb0001Context();
+
+
     public IActionResult Index()
     {
-        return View();
+        var model = new IndexViewModel()
+        {
+            Site = db.Sites.First(),
+            Slides = db.Slides.OrderBy(x => x.Order).Where(x => x.Isview == true).ToList(),
+            Blogs = db.Blogs!.OrderByDescending(x => x.Id).Where(x => x.Isview == true).ToList()
+
+        };
+        return View(model);
     }
+
 
     [Route("/contact")]
     public IActionResult Contact()
     {
-        return View();
+        var model = new IndexViewModel()
+        {
+            Site = db.Sites!.First()
+        };
+
+        return View(model);
     }
 
     [Route("/about")]
     public IActionResult About()
     {
-        return View();
+        var model = new IndexViewModel()
+        {
+            Site = db.Sites!.First()
+        };
+
+        return View(model);
     }
 
     [Route("/blog")]
     public IActionResult Blog()
     {
-        return View();
+        var model = new IndexViewModel()
+        {
+            Site = db.Sites!.First()
+        };
+
+        return View(model);
     }
 
-     [Route("/blog/{title}/{id}")]
+    [Route("/blog/{title}/{id}")]
     public IActionResult BlogDetail(String title, int id)
     {
-        return View();
+        var model = new IndexViewModel()
+        {
+            Site = db.Sites!.First()
+        };
+
+        return View(model);
     }
 
     [Route("/event")]
     public IActionResult Event()
     {
-        return View();
+        var model = new IndexViewModel()
+        {
+            Site = db.Sites!.First()
+        };
+
+        return View(model);
     }
 
-     [Route("/work")]
+    [Route("/work")]
     public IActionResult Work()
     {
-        return View();
+        var model = new IndexViewModel()
+        {
+            Site = db.Sites!.First()
+        };
+
+        return View(model);
     }
 
-   
+
+
+
 
     [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
     public IActionResult Error()
