@@ -17,14 +17,20 @@ public class HomeController : Controller
 
     PmitLn2oqDb0001Context db = new PmitLn2oqDb0001Context();
 
-
-    public IActionResult Index()
+    [Route("/{currentPage?}")]
+    public IActionResult Index(int currentPage)
     {
+        if (currentPage == 0)
+        {
+            currentPage = 1;
+        }
+        HttpContext.Session.SetInt32("currentPage", currentPage);
+
         var model = new IndexViewModel()
         {
             Site = db.Sites!.First(),
             Slides = db.Slides!.OrderBy(x => x.Order).Where(x => x.Isview == true).ToList(),
-            Blogs = db.Blogs!.OrderByDescending(x => x.Id).Where(x => x.Isview == true).ToList()
+            Blogs = db.Blogs!.OrderByDescending(x => x.Id).Where(x => x.Isview == true).ToList(),
 
         };
         return View(model);
